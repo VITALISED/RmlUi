@@ -28,6 +28,10 @@ if(RMLUI_SAMPLES)
 		add_subdirectory("lua_invaders")
 	endif()
 
+	if(RMLUI_SQ_BINDINGS)
+		add_subdirectory("squirrel_test")
+	endif()
+
 	install(DIRECTORY assets shell
 		DESTINATION "${CMAKE_INSTALL_DATADIR}/Samples"
 		PATTERN "CMakeLists.txt" EXCLUDE

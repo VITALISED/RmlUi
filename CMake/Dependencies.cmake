@@ -60,6 +60,19 @@ if(RMLUI_LUA_BINDINGS AND RMLUI_LUA_BINDINGS_LIBRARY STREQUAL "luajit")
 	report_dependency_found_or_error("Lua" LuaJIT::LuaJIT "Lua bindings enabled with LuaJIT")
 endif()
 
+if(RMLUI_SQ_BINDINGS)
+	if(NOT TARGET Squirrel::Squirrel)
+		find_package("Squirrel" REQUIRED)
+		add_library(Squirrel::Squirrel INTERFACE IMPORTED)
+		set_target_properties(Squirrel::Squirrel PROPERTIES
+			INTERFACE_LINK_LIBRARIES "${SQUIRREL_LIBRARY}"
+			INTERFACE_INCLUDE_DIRECTORIES "${SQUIRREL_INCLUDE_DIR}"
+		)
+	endif()
+	add_library(RmlUi::External::Squirrel ALIAS Squirrel::Squirrel)
+	report_dependency_found_or_error("Squirrel" Squirrel::Squirrel "Squirrel bindings")
+endif()
+
 if(NOT RMLUI_IS_CONFIG_FILE)
 	if(RMLUI_TRACY_PROFILING AND RMLUI_TRACY_CONFIGURATION)
 		enable_configuration_type(Tracy Release ON)

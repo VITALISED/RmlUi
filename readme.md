@@ -1,4 +1,7 @@
-﻿# RmlUi - The HTML/CSS User Interface Library Evolved
+﻿# RmlUi Squirrel
+This is a straightforward porting of the Lua plugin to Squirrel. It's baked into the project as a fork right now but I'll move it out later as it's own thing once it actually works.
+
+# RmlUi - The HTML/CSS User Interface Library Evolved
 
 ![RmlUi logo](https://github.com/mikke89/RmlUiDoc/raw/c7253748d1bcf6dd33d97ab4fe8b6731a7ee3dac/assets/rmlui.png)
 
